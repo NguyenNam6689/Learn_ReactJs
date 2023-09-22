@@ -17,7 +17,7 @@
     "test": "react-scripts test",
     "lint": "eslint . --ext .js --fix",
     "eject": "react-scripts eject",
-    "prepare": "icacls .husky/pre-commit /grant Everyone:(RX) && icacls .husky/commit-msg /grant Everyone:(RX) && husky install",
+    "prepare": "chmod +x .husky/* && husky install",
     "pre-commit": "echo \"[Husky] pre-commit\""
   },
   "husky": {
