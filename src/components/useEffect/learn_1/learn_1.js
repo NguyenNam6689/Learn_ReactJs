@@ -1,15 +1,15 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import axios from 'axios';
 
 const LearnApi = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [data, setData] = useState([]);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [loading, setLoading] = useState(false);
+  const [activeButton, setActiveButton] = useState(null);
+
   const handleFetchApi = (param) => {
     setLoading(true);
+    setActiveButton(param); // Đặt nút hiện tại thành nút được bấm
     return axios
       .get(`https://jsonplaceholder.typicode.com/${param}`)
       .then((rs) => {
@@ -22,16 +22,31 @@ const LearnApi = () => {
       });
   };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     handleFetchApi('users');
   }, []);
+
   return (
     <>
       <div className="button-container">
-        <button onClick={() => handleFetchApi('users')}>Users</button>
-        <button onClick={() => handleFetchApi('comments')}>Comments</button>
-        <button onClick={() => handleFetchApi('posts')}>Posts</button>
+        <button
+          onClick={() => handleFetchApi('users')}
+          className={activeButton === 'users' ? 'active-button' : ''}
+        >
+          Users
+        </button>
+        <button
+          onClick={() => handleFetchApi('comments')}
+          className={activeButton === 'comments' ? 'active-button' : ''}
+        >
+          Comments
+        </button>
+        <button
+          onClick={() => handleFetchApi('posts')}
+          className={activeButton === 'posts' ? 'active-button' : ''}
+        >
+          Posts
+        </button>
       </div>
       {loading ? (
         <h1>...Loading</h1>
