@@ -1,0 +1,31 @@
+/* Thiết lập styles cho nút Search */
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Thiết lập styles cho danh sách kết quả */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #e0e0e0;
+}
+
+/* Thiết lập styles cho thông báo Loading và Error */
+h1 {
+    font-size: 24px;
+    color: #333;
+}

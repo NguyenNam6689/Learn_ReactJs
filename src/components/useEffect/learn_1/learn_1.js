@@ -47,13 +47,19 @@ const LearnApi = () => {
         >
           Posts
         </button>
+        <button
+          onClick={() => handleFetchApi('albums')}
+          className={activeButton === 'albums' ? 'active-button' : ''}
+        >
+          Posts
+        </button>
       </div>
       {loading ? (
         <h1>...Loading</h1>
       ) : (
         <ul>
           {data.map((item) => (
-            <li key={item.id}>{item.name || item.body}</li>
+            <li key={item.id}>{item.name || item.body || item.title}</li>
           ))}
         </ul>
       )}
