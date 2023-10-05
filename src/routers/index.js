@@ -22,6 +22,7 @@ const Routers = () => {
         {
           path: '/usestate',
           element: <UseStateLayout />,
+          index: true,
         },
         {
           path: '/useeffects',

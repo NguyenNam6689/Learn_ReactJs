@@ -1,7 +1,7 @@
 import React from 'react';
 import data from './data';
 // import './style.scss';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -22,8 +22,8 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+      <Outlet />
     </div>
   );
 };
-
 export default Navbar;
